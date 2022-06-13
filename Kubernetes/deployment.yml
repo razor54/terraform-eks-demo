@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: defi-api-deployment
+  labels:
+    app: defi-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: defi-api
+  template:
+    metadata:
+      labels:
+        app: defi-api 
+    spec:
+      containers:
+      - name: defi-api
+        image: 8392019284.dkr.ecr.us-west-1.amazonaws.com/defi-api:1.0.0
+        ports:
+        - containerPort: 3000

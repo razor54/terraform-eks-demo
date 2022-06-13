@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-defi-api
+spec:
+  rules:
+  - host: defi-api.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: defi-api-service
+            port:
+              number: 80
+  ingressClassName: nginx

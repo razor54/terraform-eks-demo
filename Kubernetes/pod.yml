@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: defi-api
+spec:
+  containers:
+    - name: defi-api-container
+      image: 8392019284.dkr.ecr.us-west-1.amazonaws.com/defi-api:1.0.0
+      volumeMounts:
+      - name: config-volume
+        mountPath: /etc/config
+  volumes:
+    - name: config-volume
+      configMap:
+        name: demo-configmap
+  restartPolicy: Never
